@@ -2,4 +2,5 @@
 # SPDX-License-Identifier: Apache-2.0
 
 if LED
+rsource "Kconfig.led_rgb_pwm"
 endif #LED

@@ -1,0 +1,7 @@
+config LED_RGB_PWM
+	bool "PWM-driven RGB LED"
+	default y
+	depends on DT_HAS_LED_RGB_PWM_ENABLED
+	select PWM
+	help
+	  PWM-driven RGB LED
