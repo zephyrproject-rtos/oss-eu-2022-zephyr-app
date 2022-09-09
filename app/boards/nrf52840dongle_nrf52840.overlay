@@ -2,6 +2,19 @@
 	chosen {
 		zephyr,console = &cdc_acm_uart0;
 	};
+
+	/* disable pwmleds (conflicts with our custom driver) */
+	pwmleds {
+		status = "disabled";
+	};
+
+	rgbled: led-rgb-pwm {
+		compatible = "led-rgb-pwm";
+		pwms = <&pwm0 0 PWM_MSEC(20) PWM_POLARITY_INVERTED>,
+		       <&pwm0 1 PWM_MSEC(20) PWM_POLARITY_INVERTED>,
+		       <&pwm0 2 PWM_MSEC(20) PWM_POLARITY_INVERTED>;
+		pwm-names = "red", "green", "blue";
+	};
 };
 
 &zephyr_udc0 {
