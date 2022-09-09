@@ -1,6 +1,16 @@
 / {
+	chosen {
+		zephyr,console = &cdc_acm_uart0;
+	};
+
 	examplesensor0: examplesensor-0 {
 		compatible = "zephyr,examplesensor";
 		input-gpios = <&gpio1 6 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+	};
+};
+
+&zephyr_udc0 {
+	cdc_acm_uart0: cdc_acm_uart0 {
+		compatible = "zephyr,cdc-acm-uart";
 	};
 };

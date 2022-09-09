@@ -5,6 +5,7 @@
 
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/sensor.h>
+#include <zephyr/usb/usb_device.h>
 
 #include "app_version.h"
 
@@ -17,6 +18,14 @@ void main(void)
 	const struct device *sensor;
 
 	printk("Zephyr Example Application %s\n", APP_VERSION_STR);
+
+#ifdef CONFIG_USB_DEVICE_STACK
+	ret = usb_enable(NULL);
+	if (ret < 0) {
+		LOG_ERR("Failed to enable USB");
+		return;
+	}
+#endif
 
 	sensor = DEVICE_DT_GET(DT_NODELABEL(examplesensor0));
 	if (!device_is_ready(sensor)) {
