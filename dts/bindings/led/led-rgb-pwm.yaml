@@ -1,0 +1,26 @@
+# Copyright (c) 2022 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  RGB LED controlled using PWM signals. Example usage:
+
+  led-rgb {
+      compatible = "led-rgb-pwm";
+      pwms = <&pwm0 0 PWM_MSEC(20) PWM_POLARITY_NORMAL>,
+             <&pwm0 1 PWM_MSEC(20) PWM_POLARITY_NORMAL>,
+             <&pwm0 2 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+      pwm-names = "red", "green", "blue";
+  };
+
+compatible: "led-rgb-pwm"
+
+include: led-controller.yaml
+
+properties:
+    pwms:
+      required: true
+      type: phandle-array
+
+    pwm-names:
+      required: true
+      type: string-array
