@@ -14,4 +14,9 @@ manifest:
     - name: zephyr
       remote: zephyrproject-rtos
       revision: main
-      import: true
+      import:
+        name-allowlist:
+          - cmsis
+          - hal_nordic
+          - segger
+          - tinycrypt
