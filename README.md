@@ -34,16 +34,18 @@ point to the development branch of Zephyr, also `main`.
 Before getting started, make sure you have a proper Zephyr development
 environment. You can follow the official
 [Zephyr Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html).
+However, make sure to stop before the `west init` invocation, since that will instead be done with
+the instructions below.
 
 ### Initialization
 
 The first step is to initialize the workspace folder (``my-workspace``) where
-the ``example-application`` and all Zephyr modules will be cloned. You can do
+the ``zephyr app`` and all Zephyr modules will be cloned. You can do
 that by running:
 
 ```shell
-# initialize my-workspace for the example-application (main branch)
-west init -m https://github.com/zephyrproject-rtos/example-application --mr main my-workspace
+# initialize my-workspace for the zephyr app (main branch)
+west init -m https://github.com/zephyrproject-rtos/oss-eu-2022-zephyr-app --mr main my-workspace
 # update Zephyr modules
 cd my-workspace
 west update
